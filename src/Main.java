@@ -20,11 +20,11 @@ public class Main {
             while ((sCurrentLine = br.readLine()) != null) {
                 //System.out.println(sCurrentLine);
                 strings.add(sCurrentLine);
-                for (String word: sCurrentLine.split(" ")) {
+                for (String word : sCurrentLine.split(" ")) {
                     word = word.replace("\t", "").replace(".", "");
                     unicWords.add(word);
                     if (counter.containsKey(word)) {
-                        counter.put(word, (int) counter.get(word)  + 1);
+                        counter.put(word, (int) counter.get(word) + 1);
                     } else {
                         counter.put(word, 1);
                     }
@@ -46,11 +46,11 @@ public class Main {
         System.out.println("counter: " + counter.toString());
 
         //Вывод строк в обратном порядке
-        for (int i = strings.size()-1; i >= 0; i--) {
-            System.out.println(i + " " + strings.get(i));
+        for (String str : new MyStrings<String>(strings)) {
+            System.out.println(str.toString());
         }
 
-        //Вывод запрошенно строки из консоли
+        //Вывод запрошенной строки из консоли
         Scanner scanner = new Scanner(System.in);
         System.out.print("Введите номер строки: ");
         System.out.println(strings.get(scanner.nextInt()));
